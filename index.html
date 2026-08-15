@@ -1,15 +1,142 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Implicit Cultural Alignment Reward Model</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 100px; }
-        h1 { color: #333; }
-        p { color: #666; font-size: 1.2em; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="description" content="Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implicit Cultural Alignment Reward Model</title>
+
+  <!-- 引入 Bulma CSS 框架與 Google 字體，打造現代學術感 -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body { font-family: 'Noto Sans', sans-serif; background-color: #FAFAFA; }
+    .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 800; line-height: 1.2; }
+    .author-block { display: inline-block; margin-right: 15px; font-size: 1.3rem; }
+    .affiliation-block { display: inline-block; margin-right: 20px; font-size: 1.1rem; color: #555; }
+    .publication-links { margin-top: 25px; }
+    .link-block { margin-right: 10px; margin-bottom: 10px; display: inline-block; }
+    .teaser-image { max-width: 100%; border-radius: 10px; box-shadow: 0 8px 15px rgba(0,0,0,0.1); margin: 20px 0; }
+    .bibtex-box { background-color: #f5f5f5; padding: 20px; border-radius: 8px; text-align: left; overflow-x: auto; font-family: monospace; font-size: 0.95rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); }
+    .section-title { font-family: 'Google Sans', sans-serif; font-weight: bold; margin-bottom: 20px; }
+    .content-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+  </style>
 </head>
 <body>
-    <h1>Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeling</h1>
-    <p>Project Page and Code coming soon...</p>
+
+<!-- 標題與作者區塊 -->
+<section class="section" style="padding-top: 5rem; padding-bottom: 3rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h1 class="title is-2 publication-title">Debiasing Text-to-Image Evaluation via <br> Implicit Cultural Alignment Reward Modeling</h1>
+        
+        <div class="is-size-5 publication-authors" style="margin-top: 20px;">
+          <span class="author-block">Bo-An Chang<sup>1</sup>,</span>
+          <span class="author-block">Yu-Chih Chen<sup>2</sup></span>
+        </div>
+        
+        <div class="is-size-6 publication-authors" style="margin-top: 15px;">
+          <span class="affiliation-block"><sup>1</sup>National Tsing Hua University</span>
+          <span class="affiliation-block"><sup>2</sup>National Yang Ming Chiao Tung University</span>
+        </div>
+
+        <!-- 按鈕連結區塊 -->
+        <div class="publication-links">
+          <!-- Paper PDF 按鈕 (未來可替換為 arxiv 連結) -->
+          <span class="link-block">
+            <a href="#" class="button is-dark is-rounded">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Paper (Coming Soon)</span>
+            </a>
+          </span>
+          <!-- GitHub Code 按鈕 -->
+          <span class="link-block">
+            <a href="https://github.com/Bensonch1214/Implicit-Cultural-Alignment" class="button is-dark is-rounded">
+              <span class="icon"><i class="fab fa-github"></i></span>
+              <span>Code</span>
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 視覺震撼區 (Teaser) -->
+<section class="section" style="padding-top: 0;">
+  <div class="container is-max-desktop has-text-centered content-box">
+    <!-- ⚠️請將下方 src 替換為你的圖片網址 -->
+    <img src="https://via.placeholder.com/1000x450?text=Upload+Your+Qualitative+Pairs+(Figure+2)+Here" alt="Teaser Image" class="teaser-image">
+    <h2 class="subtitle has-text-centered" style="margin-top: 15px; font-size: 1.1rem; color: #666;">
+      Our Implicit Cultural Alignment Reward Model demonstrates strong sensitivity to localized visual-semantic cues relevant to prompt-conditioned cultural authenticity, effectively penalizing implicit cultural misalignments.
+    </h2>
+  </div>
+</section>
+
+<!-- 摘要 (Abstract) -->
+<section class="section">
+  <div class="container is-max-desktop content-box">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-11">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <div class="content has-text-justified is-size-6">
+          <p>
+            As Text-to-Image (T2I) systems rapidly advance, evaluating the cultural authenticity of synthesized content has become increasingly important for fair and trustworthy generative AI. Existing T2I evaluation metrics and multimodal judges often rely on visual-semantic representations that underrepresent implicit cultural norms, leading to biased preference judgments and the omission of fine-grained cultural cues. In addition, visual question answering (VQA)-based evaluators typically depend on autoregressive text generation, which limits their scalability for real-time reward modeling. 
+          </p>
+          <p>
+            To address these limitations, we introduce an Implicit Cultural Alignment Reward Model built upon a lightweight 4.2-billion-parameter Multimodal Large Language Model (MLLM). Our framework integrates an Implicit Cultural Probe with a Skip-connection Cross-Attention (SkipCA) mechanism, enabling late-stage semantic features to directly attend to early-stage visual representations and better preserve culturally salient details. 
+          </p>
+          <p>
+            Evaluations on 3,323 challenging and carefully curated image pairs from the CulturalFrames benchmark show that our approach achieves 82.12% pairwise accuracy, with Pearson and Kendall correlation coefficients of 0.585 and 0.412, respectively, outperforming representative vision-language metrics and MLLM-based evaluators. Moreover, by bypassing autoregressive text generation, our model processes each evaluation in 0.21 seconds under our local inference setup, achieving a 10× speedup over standard VQA-based evaluators. These results suggest that the proposed reward model can provide an efficient and culturally aware scalar signal for preference optimization pipelines such as Reinforcement Learning from Human Feedback and Direct Preference Optimization.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 方法與架構 (Methodology) -->
+<section class="section">
+  <div class="container is-max-desktop content-box has-text-centered">
+    <h2 class="title is-3 section-title">Methodology</h2>
+    <!-- ⚠️請將下方 src 替換為你的架構圖網址 -->
+    <img src="https://via.placeholder.com/1000x400?text=Upload+Your+Architecture+(Figure+1)+Here" alt="Architecture" class="teaser-image" style="margin-top: 10px; margin-bottom: 20px;">
+    <div class="content has-text-justified is-size-6">
+      <p>
+        Our framework integrates an <b>Implicit Cultural Probe</b> with a <b>SkipCA (Skip-connection Cross-Attention)</b> mechanism. Built upon the Phi-3.5-vision backbone, the SkipCA module enables the final EOS hidden representation to revisit early visual tokens before producing a scalar reward. This design preserves fine-grained cultural evidence while completely bypassing the computational overhead of autoregressive VQA-style rationale generation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 引用 (BibTeX) -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop">
+    <div class="content-box">
+      <h2 class="title is-3 section-title">BibTeX</h2>
+      <div class="bibtex-box">
+<pre><code>@inproceedings{chang2026debiasing,
+  title={Debiasing Text-to-Image Evaluation via Implicit Cultural Alignment Reward Modeling},
+  author={Chang, Bo-An and Chen, Yu-Chih},
+  booktitle={European Conference on Computer Vision (ECCV) Workshops},
+  year={2026}
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 頁尾 -->
+<footer class="footer" style="background-color: transparent;">
+  <div class="container has-text-centered">
+    <p class="is-size-7" style="color: #999;">
+      This website template is inspired by <a href="https://github.com/nerfies/nerfies.github.io" target="_blank">Nerfies</a> and adapted for academic research.
+    </p>
+  </div>
+</footer>
+
 </body>
 </html>
