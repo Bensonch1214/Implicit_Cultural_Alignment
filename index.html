@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <style>
     body { font-family: 'Noto Sans', sans-serif; background-color: #FAFAFA; }
     .publication-title { font-family: 'Google Sans', sans-serif; font-weight: 800; line-height: 1.2; }
@@ -22,6 +22,7 @@
     .bibtex-box { background-color: #f5f5f5; padding: 20px; border-radius: 8px; text-align: left; overflow-x: auto; font-family: monospace; font-size: 0.95rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05); }
     .section-title { font-family: 'Google Sans', sans-serif; font-weight: bold; margin-bottom: 20px; }
     .content-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .highlight-row { background-color: #f0f8ff !important; font-weight: bold; color: #000; }
   </style>
 </head>
 <body>
@@ -31,6 +32,12 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column has-text-centered">
+        <!-- 🎉 ECCV 接收橫幅 -->
+        <div class="is-size-4 has-text-weight-bold has-text-danger" style="margin-bottom: 20px;">
+          <span class="icon"><i class="fas fa-award"></i></span>
+          🎊 Paper Accepted by ECCV '26 Workshops
+        </div>
+        
         <h1 class="title is-2 publication-title">Debiasing Text-to-Image Evaluation via <br> Implicit Cultural Alignment Reward Modeling</h1>
         
         <div class="is-size-5 publication-authors" style="margin-top: 20px;">
@@ -45,10 +52,17 @@
 
         <!-- 按鈕連結區塊 -->
         <div class="publication-links">
+          <!-- Paper -->
+          <span class="link-block">
+            <a href="請填入你的PDF檔案路徑或網址.pdf" class="button is-dark is-rounded" target="_blank">
+              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span>Paper</span>
+            </a>
+          </span>
           <!-- arXiv 按鈕 -->
           <span class="link-block">
             <a href="https://arxiv.org/abs/2607.15740" class="button is-dark is-rounded" target="_blank">
-              <span class="icon"><i class="fas fa-file-pdf"></i></span>
+              <span class="icon"><i class="ai ai-arxiv"></i></span>
               <span>arXiv</span>
             </a>
           </span>
@@ -61,7 +75,7 @@
           </span>
           <!-- GitHub Code 按鈕 -->
           <span class="link-block">
-            <a href="" class="button is-dark is-rounded" target="_blank">
+            <a href="待填" class="button is-dark is-rounded" target="_blank">
               <span class="icon"><i class="fab fa-github"></i></span>
               <span>Code(coming soon)</span>
             </a>
@@ -114,6 +128,74 @@
     <div class="content has-text-justified is-size-6">
       <p>
         Our framework integrates an <b>Implicit Cultural Probe</b> with a <b>SkipCA (Skip-connection Cross-Attention)</b> mechanism. Built upon the Phi-3.5-vision backbone, the SkipCA module enables the final EOS hidden representation to revisit early visual tokens before producing a scalar reward. This design preserves fine-grained cultural evidence while completely bypassing the computational overhead of autoregressive VQA-style rationale generation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 📊 實驗結果數據表格 (Experimental Results) -->
+<section class="section">
+  <div class="container is-max-desktop content-box">
+    <h2 class="title is-3 section-title has-text-centered">Experimental Results</h2>
+    
+    <!-- Table 2: 準確率比較 -->
+    <h3 class="title is-5" style="margin-top: 30px;">Quantitative Evaluation of Cultural Alignment</h3>
+    <p class="mb-4" style="margin-bottom: 15px; color: #555;">Our model achieves the best performance among the compared methods, reaching 82.12% pairwise accuracy and the highest correlation with human cultural-alignment judgments.</p>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+        <thead>
+          <tr>
+            <th class="has-text-centered">Method</th>
+            <th class="has-text-centered">Acc. (%)</th>
+            <th class="has-text-centered">Pearson</th>
+            <th class="has-text-centered">Kendall</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CLIPScore</td><td>52.60</td><td>0.080</td><td>0.060</td></tr>
+          <tr><td>PickScore</td><td>67.96</td><td>0.223</td><td>0.146</td></tr>
+          <tr><td>GPT-4o</td><td>72.54</td><td>0.405</td><td>0.267</td></tr>
+          <tr><td>VQAScore</td><td>76.83</td><td>0.432</td><td>0.363</td></tr>
+          <tr class="highlight-row">
+            <td>Our Model</td><td>82.12</td><td>0.585</td><td>0.412</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Table 4: 消融實驗 -->
+    <h3 class="title is-5" style="margin-top: 40px;">Ablation Study</h3>
+    <p class="mb-4" style="margin-bottom: 15px; color: #555;">Evaluated on the testing split of the augmented CulturalFrames dataset to demonstrate the contribution of the Cultural Prompt and SkipCA module.</p>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+        <thead>
+          <tr>
+            <th class="has-text-centered">Model Variant</th>
+            <th class="has-text-centered">Acc. (%)</th>
+            <th class="has-text-centered">Pearson</th>
+            <th class="has-text-centered">Kendall</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Variant A (w/o Cultural Prompt)</td><td>79.94</td><td>0.562</td><td>0.397</td></tr>
+          <tr><td>Variant B (w/o SkipCA)</td><td>80.74</td><td>0.543</td><td>0.374</td></tr>
+          <tr><td>Variant C (Frozen Projector)</td><td>81.74</td><td>0.505</td><td>0.359</td></tr>
+          <tr class="highlight-row">
+            <td>Full Model</td><td>82.12</td><td>0.585</td><td>0.412</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 🤝 Acknowledgements -->
+<section class="section">
+  <div class="container is-max-desktop content-box">
+    <h2 class="title is-3 section-title">Acknowledgements</h2>
+    <div class="content has-text-justified is-size-6">
+      <p>
+        This work was supported by the MOE Yushan Young Scholar Program under Grant MOE-114-YSFEE-0010-008-P1 and NSTC Taiwan under Grant NSTC 115-2813-C-A49-146-E.
       </p>
     </div>
   </div>
