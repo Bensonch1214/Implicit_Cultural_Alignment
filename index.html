@@ -162,6 +162,34 @@
       </table>
     </div>
 
+    <!-- Table 3: 推理效率 (Inference Efficiency) -->
+    <h3 class="title is-5" style="margin-top: 40px;">Inference Efficiency</h3>
+    <p class="mb-4" style="margin-bottom: 15px; color: #555;">By bypassing autoregressive text generation, our model processes each evaluation in 0.21 seconds, achieving approximately a 10× speedup over standard VQA-based evaluators like VQAScore.</p>
+    <div class="table-container">
+      <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
+        <thead>
+          <tr>
+            <th class="has-text-centered">Method</th>
+            <th class="has-text-centered">Parameters</th>
+            <th class="has-text-centered">Inference Time (s)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>CLIPScore</td><td>428M</td><td>0.01</td></tr>
+          <tr><td>PickScore</td><td>986M</td><td>0.06</td></tr>
+          <tr><td>GPT-4o</td><td>--</td><td>0.42*</td></tr>
+          <tr><td>VQAScore</td><td>11B</td><td>2.82</td></tr>
+          <tr class="highlight-row">
+            <td>Our Model</td><td>4.42B</td><td>0.21</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- GPT-4o API 測量說明的備註 -->
+      <p class="is-size-7 has-text-left" style="color: #888; margin-top: -10px; margin-bottom: 20px;">
+        * GPT-4o latency is measured through API access and is not directly comparable to local inference time.
+      </p>
+    </div>
+
     <!-- Table 4: 消融實驗 -->
     <h3 class="title is-5" style="margin-top: 40px;">Ablation Study</h3>
     <p class="mb-4" style="margin-bottom: 15px; color: #555;">Evaluated on the testing split of the augmented CulturalFrames dataset to demonstrate the contribution of the Cultural Prompt and SkipCA module.</p>
