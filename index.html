@@ -108,7 +108,7 @@
             To address these limitations, we introduce an Implicit Cultural Alignment Reward Model built upon a lightweight 4.2-billion-parameter Multimodal Large Language Model (MLLM). Our framework integrates an Implicit Cultural Probe with a Skip-connection Cross-Attention (SkipCA) mechanism, enabling late-stage semantic features to directly attend to early-stage visual representations and better preserve culturally salient details. 
           </p>
           <p>
-            Evaluations on 3,323 challenging and carefully curated image pairs from the CulturalFrames benchmark show that our approach achieves 82.12% pairwise accuracy, with Pearson and Kendall correlation coefficients of 0.585 and 0.412, respectively, outperforming representative vision-language metrics and MLLM-based evaluators. Moreover, by bypassing autoregressive text generation, our model processes each evaluation in 0.21 seconds under our local inference setup, achieving a 10× speedup over standard VQA-based evaluators. These results suggest that the proposed reward model can provide an efficient and culturally aware scalar signal for preference optimization pipelines such as Reinforcement Learning from Human Feedback and Direct Preference Optimization.
+            Evaluations on 3,323 challenging and carefully curated image pairs from the CulturalFrames benchmark show that our approach achieves 83.49% pairwise accuracy, with Pearson and Kendall correlation coefficients of 0.5268 and 0.3749, respectively, outperforming representative vision-language metrics and MLLM-based evaluators. Moreover, by bypassing autoregressive text generation, our model processes each evaluation in 0.21 seconds under our local inference setup, achieving a 10× speedup over standard VQA-based evaluators. These results suggest that the proposed reward model can provide an efficient and culturally aware scalar signal for preference optimization pipelines such as Reinforcement Learning from Human Feedback and Direct Preference Optimization.
           </p>
         </div>
       </div>
@@ -136,7 +136,7 @@
     
     <!-- Table 2: 準確率比較 -->
     <h3 class="title is-5" style="margin-top: 30px;">Quantitative Evaluation of Cultural Alignment</h3>
-    <p class="mb-4" style="margin-bottom: 15px; color: #555;">Our model achieves the best performance among the compared methods, reaching 82.12% pairwise accuracy and the highest correlation with human cultural-alignment judgments.</p>
+    <p class="mb-4" style="margin-bottom: 15px; color: #555;">Our model achieves the best performance among the compared methods, reaching 83.49% pairwise accuracy and the highest correlation with human cultural-alignment judgments.</p>
     <div class="table-container">
       <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth has-text-centered">
         <thead>
@@ -153,7 +153,7 @@
           <tr><td>GPT-4o</td><td>72.54</td><td>0.405</td><td>0.267</td></tr>
           <tr><td>VQAScore</td><td>76.83</td><td>0.432</td><td>0.363</td></tr>
           <tr class="highlight-row">
-            <td>Our Model</td><td>82.12</td><td>0.585</td><td>0.412</td>
+            <td>Our Model</td><td>83.49</td><td>0.5268</td><td>0.3749</td>
           </tr>
         </tbody>
       </table>
@@ -201,11 +201,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr><td>Variant A (w/o Cultural Prompt)</td><td>79.94</td><td>0.562</td><td>0.397</td></tr>
-          <tr><td>Variant B (w/o SkipCA)</td><td>80.74</td><td>0.543</td><td>0.374</td></tr>
-          <tr><td>Variant C (Frozen Projector)</td><td>81.74</td><td>0.505</td><td>0.359</td></tr>
+          <tr><td>Variant A (w/o Cultural Prompt)</td><td>74.68</td><td>0.4286</td><td>0.3173</td></tr>
+          <tr><td>Variant B (w/o SkipCA)</td><td>81.10</td><td>0.4686</td><td>0.3365</td></tr>
+          <tr><td>Variant C (Frozen Projector)</td><td>77.43</td><td>0.4657</td><td>0.3368</td></tr>
           <tr class="highlight-row">
-            <td>Full Model</td><td>82.12</td><td>0.585</td><td>0.412</td>
+            <td>Full Model</td><td>83.49</td><td>0.5268</td><td>0.3749</td>
           </tr>
         </tbody>
       </table>
